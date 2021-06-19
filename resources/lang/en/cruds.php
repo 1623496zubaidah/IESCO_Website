@@ -1,0 +1,85 @@
+<?php
+
+return[
+    'project'          => [
+        'title'          => 'Projects',
+        'all'          => 'All Projects',
+        'deleted'          => 'Deleted Projectss',
+        'title_singular' => 'Project',
+        'fields'         => [
+            'id'                => 'ID',
+            'id_helper'         => '',
+            'title'              => 'Title',
+            'title_helper'       => '',
+            'targeted'              => 'Targeted',
+            'targeted_helper'       => '',
+            'desc'              => 'Description',  
+            'desc_helper'       => '', 
+            'type'              => 'Type',  
+            'type_helper'       => '', 
+            'photo'             => 'photo',
+            'created_at'        => 'Created at',
+            'created_at_helper' => '',
+            'updated_at'        => 'Updated at',
+            'updated_at_helper' => '',
+            'deleted_at'        => 'Deleted at',
+            'deleted_at_helper' => '',
+            'project'             => 'Project',
+            'project_helper'      => '',
+        ],
+    ],
+
+
+    'campaign'          => [
+        'title'          => 'Campaigns',
+        'all'          => 'All Campaigns',
+        'deleted'          => 'Deleted Campaigns',
+        'title_singular' => 'Campaign',
+        'fields'         => [
+            'id'                => 'ID',
+            'id_helper'         => '',
+            'title'              => 'Title',
+            'title_helper'       => '',
+            'targeted'              => 'Targeted',
+            'targeted_helper'       => '',
+            'desc'              => 'Description',  
+            'desc_helper'       => '', 
+            'created_at'        => 'Created at',
+            'created_at_helper' => '',
+            'updated_at'        => 'Updated at',
+            'updated_at_helper' => '',
+            'deleted_at'        => 'Deleted at',
+            'deleted_at_helper' => '',
+            'campaign'             => 'Campaign',
+            'campaign_helper'      => '',
+        ],
+    ],
+
+
+    'news'          => [
+        'title'          => 'News',
+        'all'          => 'All News',
+        'deleted'          => 'Deleted News',
+        'title_singular' => 'News',
+        'fields'         => [
+            'id'                => 'ID',
+            'id_helper'         => '',
+            'title'              => 'Title',
+            'title_helper'       => '',
+            'targeted'              => 'Targeted',
+            'targeted_helper'       => '',
+            'desc'              => 'Description',  
+            'desc_helper'       => '', 
+            'created_at'        => 'Created at',
+            'created_at_helper' => '',
+            'updated_at'        => 'Updated at',
+            'updated_at_helper' => '',
+            'deleted_at'        => 'Deleted at',
+            'deleted_at_helper' => '',
+            'news'             => 'News',
+            'news_helper'      => '',
+        ],
+    ],
+
+
+];
