@@ -8,121 +8,89 @@ use App\Scholarship;
 
 class ScholarshipController extends Controller
 {
-    
-    public function index(){
+
+    function __construct()
+    {
+        $this->middleware('permission:scholarship-list|scholarship-create|scholarship-edit|scholarship-delete', ['only' => ['index', 'show']]);
+        $this->middleware('permission:scholarship-create', ['only' => ['create', 'store']]);
+        $this->middleware('permission:scholarship-edit', ['only' => ['edit', 'update']]);
+        $this->middleware('permission:scholarship-delete', ['only' => ['destroy']]);
+    }
+    public function index()
+    {
         $scholarships = Scholarship::all();
-        $scholarships = Scholarship::orderBy('id')->paginate(5);
-        return view('admin.scholarship', compact('scholarship'));
-        
-    }
-    
-/*         public function create (){
-            return view('admin.scholarship');
-        
-        } */
-    
-        public function store(Request $request){
-             $scholarship = $request->all();
-             $request->validate([
-                 'first_name' => 'required|max:200',
-                 'second_name' => 'required|max:500',
-                 'last_name' => 'required|max:500',
-                 'gender' => 'required|max:50',
-                 'nationality' => 'required',
-                 'place_of_birth' => 'required',
-                 'birthday' => 'required',
-                 'passport_no' => 'required',
-                 'email' => 'required',
-                 'address' => 'required',
-                 'phone_no' => 'required',
-                 'photo' => 'nullable',
-                 'uni_name' => 'required',
-                 'edu_level' => 'required',
-                 'course' => 'nullable',
-                 'major' => '',
-                 'matric_no' => '',
-                 'cgpa' => '',
-                 'user_id' => '',
-    
-             ]);
-    
-             $path = $request->file('photo')->store('public/scholarship');
-             $photo = basename($path);
-             $scholarship["photo"] = $photo; 
-           
-             $scholarship = new Scholarship();
-             $scholarship->first_name = $request->first_name;
-             $scholarship->second_name = $request->second_name;
-             $scholarship->last_name = $request->last_name;
-             $scholarship->gender = $request->gender;
-             $scholarship->nationality = $request->nationality;
-             $scholarship->place_of_birth = $request->place_of_birth;
-             $scholarship->birthday = $request->birthday;
-             $scholarship->passport_no = $request->$passport_no;
-             $scholarship->email = $request->email;
-             $scholarship->address = $request->address;
-             $scholarship->phone_no = $request->phone_no;
-             $scholarship->photo = $request->photo;
-             $scholarship->uni_name = $request->uni_name;
-             $scholarship->edu_level = $request->edu_level;
-             $scholarship->course = $request->course;
-             $scholarship->major = $request->major;
-             $scholarship->matric_no = $request->matric_no;
-             $scholarship->cgpa = $request->cgpa;
-             $scholarship->user_id = $request->user_id;
-
-             
-    
-             $scholarship->save();
-    
-             return redirect('/admin/scholarship')->with('status','created ');
-    
-        }
-    
-    
-        public function show($id) {
-            $scholarship = Scholarship::find($id); 
-       
-          return view('admin.scholarship.show', compact('project'));   
-       }  
-        
-        public function edit($id){
-            $project = Project::find($id);
-            return view('admin.projects.edit', compact('project'));
-    
-        }
-    
-    
-        public function update(Request $request, $id){
-            $request->validate([
-                'title' => 'required|max:200',
-                'targeted' => 'required|max:500',
-                'desc' => 'required|max:500',
-                'type' => 'required|max:50',
-                'photo' => 'required',
-    
-    
-            ]);
-            $project = Project::find($id);
-            $project->title = $request->title;
-            $project->targeted = $request->targeted;
-            $project->desc = $request->desc;
-            $project->type = $request->type;
-            $project->photo = $request->photo;
-    
-    
-            $project->save();
-    
-            return redirect('/admin/projects/index')->with('status','Project was updated ');
-        }
-    
-    public function destroy($id){
-        $project = Project::find($id);
-        $project->delete();
-        return redirect('/admin/projects/index')->with('status','Project was deleted ');
-    
+        return view('admin.scholarship.index')->with("scholarships",  $scholarships);
     }
 
+
+    public function show($id)
+    {
+        $scholarship = Scholarship::find($id);
+
+        return view('admin.scholarship.show')->with("scholarship", $scholarship);
+    }
+
+    public function edit($id)
+    {
+        $scholarship = Scholarship::find($id);
+        return view('admin.scholarship.edit')->with("scholarship", $scholarship);
+    }
+
+
+    public function update(Request $request, $id)
+    {
+        $this->validate($request, [
+            'first_name' => 'required',
+            'second_name' => 'required',
+            'last_name' => 'required',
+            'gender' => 'required',
+            'nation' => 'required',
+            'place_of_birth' => 'required',
+            'birth' => 'required',
+            'marital_status' => 'required',
+            'passport' => 'required',
+            'email' => 'required',
+            'phone' => 'required',
+            'address' => 'required',
+            'uni_name' => 'required',
+            'edu_level' => 'required',
+            'course' => 'required',
+            'major' => 'required',
+            'matric' => 'required',
+            'cgpa' => 'required',
+
+        ]);
+
+
+        $post = Scholarship::find($id);
+        $post->first_name = $request->input('first_name');
+        $post->second_name = $request->input('second_name');
+        $post->last_name = $request->input('last_name');
+        $post->gender = $request->input('gender');
+        $post->nationality = $request->input('nation');
+        $post->place_of_birth = $request->input('place_of_birth');
+        $post->birthday = $request->input('birth');
+        $post->marital_status = $request->input('marital_status');
+        $post->passport_no = $request->input('passport');
+        $post->email = $request->input('email');
+        $post->phone_no = $request->input('phone');
+        $post->address = $request->input('address');
+        $post->uni_name = $request->input('uni_name');
+        $post->edu_level = $request->input('edu_level');
+        $post->course = $request->input('course');
+        $post->major = $request->input('major');
+        $post->matric_no = $request->input('matric');
+        $post->cgpa = $request->input('cgpa');
+
+
+        $post->save();
+        return redirect("admin/scholarships")->with('success', '* your application has been created *');
+    }
+
+    public function destroy($id)
+    {
+        // $project = Project::find($id);
+        // $project->delete();
+        // return redirect('/admin/projects/index')->with('status', 'Project was deleted ');
+    }
 }
-
-

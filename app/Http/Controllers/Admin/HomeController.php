@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Image;
+use App\Scholarship;
 
 class HomeController extends Controller
 {
@@ -13,8 +14,10 @@ class HomeController extends Controller
         return view('admin.dashboard');
     }
 
-    public function scholarship()
-    {
-        return view('admin.scholarship');
-    }
+    // public function scholarship()
+    // {
+    //     $scholarships = Scholarship::all();
+    //     dump($scholarships);
+    //     return view('admin.scholarship')->with("scholarships",  $scholarships);
+    // }
 }

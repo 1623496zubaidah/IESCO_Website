@@ -18,8 +18,8 @@ class CreateProjectsTable extends Migration
             $table->string('title');
             $table->string('targeted');
             $table->string('desc');
-            $table->string('type')->nullable();  
-            $table->string('photo');        
+            $table->string('type')->nullable();
+            $table->string('photo');
             $table->timestamps();
             $table->softDeletes();
         });
