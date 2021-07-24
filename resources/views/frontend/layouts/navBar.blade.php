@@ -208,7 +208,8 @@
 
                             <ul>
                                 @foreach ($projects->slice(0, 5) as $project)
-                                    <li><a href="improjects/{{ $project->id }}"> {{ $project->title }}</a></li>
+                                    <li><a href="{{ url('donation-payment') }}/{{ $project->id }}">
+                                            {{ $project->title }}</a></li>
 
                                 @endforeach
                             </ul>
@@ -218,7 +219,8 @@
                                     class="bi bi-chevron-right"></i></a>
                             <ul>
                                 @foreach ($initiatives->slice(0, 5) as $initiative)
-                                    <li><a href="improjects/{{ $initiative->id }}"> {{ $initiative->title }}</a>
+                                    <li><a href="{{ url('donation-payment') }}/{{ $initiative->id }}">
+                                            {{ $initiative->title }}</a>
                                     </li>
 
                                 @endforeach
@@ -229,7 +231,8 @@
                         <li class="dropdown"><a href="#"><span>Campaigns</span> <i class="bi bi-chevron-right"></i></a>
                             <ul>
                                 @foreach ($campaigns->slice(0, 5) as $campaign)
-                                    <li><a href="improjects/{{ $campaign->id }}"> {{ $campaign->title }}</a></li>
+                                    <li><a href="{{ url('donation-payment') }}/{{ $campaign->id }}">
+                                            {{ $campaign->title }}</a></li>
 
                                 @endforeach
                             </ul>
@@ -263,7 +266,7 @@
                         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                             <a class="dropdown-item" href="{{ route('logout') }}"
                                 onclick="event.preventDefault();
-                                                                                                                                                                                                                                                                                                                                                                                                                                     document.getElementById('logout-form').submit();">
+                                                                                                                                                                                                                                                                                                                                                                                                                                                         document.getElementById('logout-form').submit();">
                                 {{ __('Logout') }}
                             </a>
 

@@ -1,6 +1,5 @@
 @extends('frontend.master')
 @section('content')
-    Helllloooo
 
 
     <section id="portfolio" class="portfolio section-bg">

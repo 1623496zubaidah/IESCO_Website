@@ -121,7 +121,7 @@
 
                                                         <input type="submit" class="btn btn-xs btn-danger"
                                                             style="background-color:#049a1b!important; border-color:#505050; color:white!important;"
-                                                            value="Publish">
+                                                            value="Done">
                                                     </form>
 
                                             </td>

@@ -55,11 +55,11 @@
 <body>
     @include('frontend.layouts.navBar', [
     'projects' =>
-    \App\Project::where("type", "Projects")->where("published", true)->get(),
+    \App\Project::where("type", "Projects")->where("published", false)->get(),
     'initiatives' =>
-    \App\Project::where("type", "Initiatives")->where("published", true)->get(),
+    \App\Project::where("type", "Initiatives")->where("published", false)->get(),
     'campaigns' =>
-    \App\Project::where("type", "Campaigns")->where("published", true)->get()
+    \App\Project::where("type", "Campaigns")->where("published", false)->get()
     ])
 
     @include('include.messages')

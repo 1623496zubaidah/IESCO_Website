@@ -4,6 +4,64 @@
 
 
 
+
+    <div class="container mt-5">
+        {{-- <a href="/" class="btn btn-dark mb-4">Go Back</a> --}}
+        <div class="row gutters">
+            <div class="col-xl-3 col-lg-3 col-md-12 col-sm-12 col-12">
+                <div class="card h-100">
+                    <div class="card-body">
+                        <div class="account-settings">
+                            <div class="user-profile">
+                                <div class="user-avatar p-3">
+                                    <img src="https://image.freepik.com/free-photo/people-holding-rubber-heart_1150-18576.jpg"
+                                        class="img-thumbnail" salt="Maxwell Admin">
+                                </div>
+                                <h5 class="user-name">Allah almighty says
+                                </h5>
+                                <h6 class="user-email">إِنَّ الْمُصَّدِّقِينَ وَالْمُصَّدِّقَاتِ وَأَقْرَضُوا
+                                    اللَّهَ قَرْضاً حَسَناً يُضَاعَفُ لَهُمْ وَلَهُمْ أَجْرٌ كَرِيم
+                                </h6>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-9 col-lg-9 col-md-12 col-sm-12 col-12">
+                <div class="card h-100">
+                    <div class="card-body">
+                        <div class="row gutters">
+                            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                                <h3 class="mb-5 text-center text-primary">Choose Payment Method</h3>
+                            </div>
+
+
+                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                                <div class="form-group">
+                                    <a href="wel" class="form-control btn btn-primary" name="name" placeholder=" ">Papal</a>
+                                </div>
+                            </div>
+                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                                <div class="form-group">
+                                    <a href="wel" class="form-control btn btn-primary" name="name"
+                                        placeholder=" ">BillPlz</a>
+                                </div>
+                            </div>
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class='form-row row'>
+            <div class='col-md-12 hide error form-group'>
+                <div class='alert-danger alert'>Fix the errors before you begin.</div>
+            </div>
+        </div>
+
+    </div>
     <form role="form" action="{{ action('StripeController@general_donation') }}" method="POST"
         class="validation mt-5 mb-5" data-cc-on-file="false" data-stripe-publishable-key="{{ env('STRIPE_KEY') }}"
         id="payment-form">
@@ -40,7 +98,7 @@
                             <div class="card-body">
                                 <div class="row gutters">
                                     <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
-                                        <h3 class="mb-5 text-center text-primary">Payment Details</h3>
+                                        <h3 class="mb-5 text-center text-primary">Choose Payment Method</h3>
                                     </div>
 
 
@@ -116,6 +174,7 @@
                                         <input class="btn btn-success btn-lg btn-block" type="submit" value="Donate Now">
                                     </div>
                                 </div>
+
                             </div>
                         </div>
                     </div>
@@ -129,7 +188,11 @@
 
         </div>
     </form>
-
+    <div class="col">
+        <div class="form-group justify-content-center">
+            <a href="wel" class="btn btn-primary btn-lg btn-block">Paypal</a>
+        </div>
+    </div>
     <script type="text/javascript" src="https://js.stripe.com/v2/"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" />
     <script type="text/javascript">

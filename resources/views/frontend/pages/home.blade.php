@@ -104,7 +104,7 @@
 
                         <div class="carousel-item carousel-image-1 {{ $index == 0 ? 'active' : '' }}"
                             style=" background: url('/storage/projects/{{ $project->photo }}');                   background-size: cover;
-                                                                                                                                                                                                                                                                background-repeat: no-repeat;">
+                                                                                                                                                                                                                                                                                        background-repeat: no-repeat;">
                             <div class="container">
                                 <div class="carousel-caption d-none d-sm-block text-right mb-5">
                                     <h1 class="display-3">{{ $project->title }}</h1>
@@ -292,10 +292,14 @@
             </div>
 
             </div>
+
             </section><!-- End Campaigns Section -->
 
             <!-- ======= Projects Section ======= -->
             <section id="portfolio" class="portfolio section-bg">
+                <a href="{{ url('projects-list') }}" class="btn"
+                    style=" color:#A52A2A; font-size:20px!important; float:right!important;margin-right:30px!important;">See
+                    all the projects that need your donation >></a><br>
                 <div class="container" data-aos="fade-up" data-aos-delay="100">
 
                     <div class="section-title">

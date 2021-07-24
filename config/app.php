@@ -177,6 +177,8 @@ return [
         App\Providers\RouteServiceProvider::class,
         Spatie\Permission\PermissionServiceProvider::class,
         // Intervention\Image\ImagesServiceProvider::class,
+        Srmklive\PayPal\Providers\PayPalServiceProvider::class,
+        Neonexxa\BillplzWrapperV3\BillplzServiceProvider::class,
 
     ],
 

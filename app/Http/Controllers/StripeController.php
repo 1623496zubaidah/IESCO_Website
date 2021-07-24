@@ -17,7 +17,7 @@ class StripeController extends Controller
     public function handleGet($id)
     {
         $project = Project::find($id);
-        return view('paynow')->with("project", $project);
+        return view('payment')->with("project", $project);
     }
 
 

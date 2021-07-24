@@ -149,3 +149,22 @@ Route::patch('/donation-payment/{id}',  'StripeController@handlePost')->name('st
 ////General donation
 Route::get('/donate', 'StripeController@viewGeneralPayment');
 Route::post('/donate', 'StripeController@general_donation');
+
+
+//Payment
+Route::get('payment', 'PayPalController@payment')->name('payment');
+Route::get('cancel', 'PayPalController@cancel')->name('payment.cancel');
+Route::get('payment/success', 'PayPalController@success')->name('payment.success');
+
+
+
+
+////Donate for projects 
+Route::get('/paypal/{id}', 'StripeController@handleGet');
+Route::patch('/paypal/{id}',  'StripeController@handlePost');
+
+////////
+Route::get('projects-list', function () {
+    $projects = Project::orderBy('created_at', 'desc')->where("published", false)->paginate(10);
+    return view('frontend.pages.uncompletedProjects')->with('projects', $projects);
+});
