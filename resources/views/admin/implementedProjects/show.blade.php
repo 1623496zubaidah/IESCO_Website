@@ -1,5 +1,4 @@
 @extends('layouts.admin')
-{{-- @extends('partials.menu') --}}
 @section('content')
 
     <div class="container">
@@ -25,30 +24,11 @@
 
                         </div>
                     </div>
-                    {{-- <div class="card mb-2">
-                        <div class="card-body">
-                            <h5 class="card-title">Phone Number</h5>
-                            <p class="card-text">{{ $project->phone }}</p>
-
-                        </div>
-                    </div> --}}
-                    {{-- <div class="card mb-2">
-                        <div class="card-body">
-                            <h5 class="card-title">Send your CV to this Email</h5>
-                            <p class="card-text">{{ $project->email }}</p>
-
-                        </div>
-                    </div> --}}
 
                 </div>
             </div>
 
         </div>
-
-
-
-
-
 
         @if (!Auth::guest())
 

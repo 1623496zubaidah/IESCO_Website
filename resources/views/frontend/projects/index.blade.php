@@ -9,8 +9,6 @@
                 <h2>Projects</h2>
             </div>
 
-
-
             <div class="row portfolio-container">
                 @if (isset($projects))
                     @foreach ($projects as $project)
@@ -35,13 +33,6 @@
         </div>
         </div><br><br><br>
 
-
-
-
     </section><!-- End Projects Section -->
-
-
-
-
 
 @endsection

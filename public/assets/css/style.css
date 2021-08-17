@@ -170,13 +170,15 @@ h1, h2, h3, h4, h5, h6, .font-primary {
   padding: 10px 0 10px 30px;
   font-family: "Open Sans", sans-serif;
   font-size: 16px;
-  color: #DAA520!important;
+  font-weight: bold;
+  color: #A52A2A!important;
   white-space: nowrap;
   transition: 0.3s;
 }
 
 .navbar a i {
   font-size: 12px;
+  font-weight: bold;
   line-height: 0;
   margin-left: 5px;
 }
@@ -504,36 +506,6 @@ h1, h2, h3, h4, h5, h6, .font-primary {
 }
 
 /*--------------------------------------------------------------
-# Sections General
---------------------------------------------------------------
-section {
-  padding: 60px 0;
-  overflow: hidden;
-}
-
-.section-bg {
-  background-color: #f5f9fc;
-}
-
-.section-title {
-  text-align: center;
-  padding-bottom: 30px;
-}
-
-.section-title h2 {
-  font-size: 32px;
-  font-weight: 600;
-  margin-bottom: 20px;
-  padding-bottom: 0;
-  color: #5c768d;
-}
-
-.section-title p {
-  margin-bottom: 0;
-}
-
-
-/*--------------------------------------------------------------
 # Campaigns
 --------------------------------------------------------------*/
 .campaigns .section-title{
@@ -580,40 +552,6 @@ section {
   .campaigns .content-item {
     padding: 40px 0;
   }
-}
-
-/*--------------------------------------------------------------
-# Counts
---------------------------------------------------------------
-.counts {
-  padding-bottom: 30px;
-}
-
-.counts .count-box {
-  box-shadow: 0px 0 16px rgba(0, 0, 0, 0.1);
-  padding: 30px;
-  background: #fff;
-  margin-bottom: 30px;
-}
-
-.counts .count-box i {
-  display: block;
-  font-size: 64px;
-  margin-bottom: 15px;
-}
-
-.counts .count-box span {
-  font-size: 42px;
-  display: block;
-  font-weight: 700;
-  color: #1c5c93;
-}
-
-.counts .count-box p {
-  padding: 0;
-  margin: 0;
-  font-family: "Raleway", sans-serif;
-  font-size: 14px;
 }
 
 /*--------------------------------------------------------------
@@ -1162,7 +1100,7 @@ section {
 }
 
 #footer {
-  background: #515355;
+  background:rgb(169,169,169)!important;
   padding: 0 0 30px 0;
   color: #fff;
   font-size: 14px;
@@ -1170,9 +1108,9 @@ section {
 }
 
 #footer .footer-top {
-  background: #515355;
-  border-top: 1px solid #515355;
-  border-bottom: 1px solid #515355;
+  background: rgb(169,169,169)!important;
+  border-top: 1px solid rgb(169,169,169)!important;
+  border-bottom: 1px solid rgb(169,169,169)!important;
   padding: 60px 0 30px 0;
 }
 
@@ -1274,7 +1212,8 @@ section {
   padding-bottom: 50px!important;
 }
 .copyright span{
-  color: #DAA520!important;
+  color: #A52A2A!important;
+  font-size: 22px;
 }
 
 

@@ -13,7 +13,7 @@ class AddApprovedToScholarship extends Migration
      */
     public function up()
     {
-        Schema::table('scholarship', function (Blueprint $table) {
+        Schema::table('scholarships', function (Blueprint $table) {
             $table->string("approved")->default("pending");
         });
     }
@@ -25,7 +25,7 @@ class AddApprovedToScholarship extends Migration
      */
     public function down()
     {
-        Schema::table('scholarship', function (Blueprint $table) {
+        Schema::table('scholarships', function (Blueprint $table) {
             $table->dropColumn("approved");
         });
     }

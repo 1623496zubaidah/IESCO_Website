@@ -50,7 +50,7 @@ class NewsController extends Controller
             $fileNameToStore = $filename . '_' . time() . '.' . $extension;
 
             //upload the image to file
-            $path = $request->file('photo')->storeAs('public/photos', $fileNameToStore);
+            $path = $request->file('photo')->storeAs('public\photos', $fileNameToStore);
         } else {
             $fileNameToStore = 'nonewsimage.jpg';
         }
@@ -100,7 +100,7 @@ class NewsController extends Controller
             $fileNameToStore = $filename . '_' . time() . '.' . $extension;
 
             //upload the image to file
-            $path = $request->file('photo')->storeAs('public/photos', $fileNameToStore);
+            $path = $request->file('photo')->storeAs('public\photos', $fileNameToStore);
             $news->photo = $fileNameToStore;
         }
         $news->title = $request->title;

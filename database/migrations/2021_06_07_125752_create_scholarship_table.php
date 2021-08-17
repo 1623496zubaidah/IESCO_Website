@@ -13,7 +13,7 @@ class CreateScholarshipTable extends Migration
      */
     public function up()
     {
-        Schema::create('scholarship', function (Blueprint $table) {
+        Schema::create('scholarships', function (Blueprint $table) {
             $table->id();
             $table->string('first_name');
             $table->string('second_name');
@@ -34,7 +34,18 @@ class CreateScholarshipTable extends Migration
             $table->string('major');
             $table->string('matric_no');
             $table->string('cgpa');
-            $table->integer('user_id');
+            $table->string('total_credit');
+            $table->string('Total_years');
+            $table->string('credit_hours_done');
+            $table->string('tuition_fee');
+            $table->string('transport_cost');
+            $table->string('books_cost');
+            $table->string('room_cost');
+            $table->string('No_family_members');
+            $table->string('monthly_income');
+            $table->string('situation');            
+            $table->unsignedBigInteger('user_id');
+            $table->foreign('user_id')->references('id')->on('users');
             $table->timestamps();
         });
     }
@@ -46,6 +57,6 @@ class CreateScholarshipTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('scholarship');
+        Schema::dropIfExists('scholarships');
     }
 }

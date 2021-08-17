@@ -21,7 +21,6 @@
         .swiper-slide {
             text-align: center;
             font-size: 18px;
-            background: #fff;
             /* Center slide text vertically */
             display: -webkit-box;
             display: -ms-flexbox;
@@ -35,6 +34,7 @@
             -ms-flex-align: center;
             -webkit-align-items: center;
             align-items: center;
+            
         }
 
         .sponser-image {
@@ -47,7 +47,7 @@
         }
 
         .carousel-image-1 {
-            height: 750px;
+            height: 650px;
 
         }
 
@@ -88,10 +88,8 @@
 
     <body>
 
-
-
         <!-- SHOWCASE SLIDER -->
-        <section id="showcase">
+        <section id="showcase" style="">
             <div id="myCarousel" class="carousel slide" data-ride="carousel">
                 <ol class="carousel-indicators">
                     <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
@@ -99,7 +97,7 @@
                     <li data-target="#myCarousel" data-slide-to="2"></li>
                 </ol>
                 <div class="carousel-inner">
-                    @foreach ($neededprojected as $index => $project)
+                    @foreach ($neededprojects as $index => $project)
 
 
                         <div class="carousel-item carousel-image-1 {{ $index == 0 ? 'active' : '' }}"
@@ -129,177 +127,13 @@
             </div>
         </section>
 
-        <!-- ======= Hero Section ======= -->
-        {{-- <section id="hero">
-            <div class="hero-container">
-                <div id="heroCarousel" class="carousel slide carousel-fade" data-bs-ride="carousel" data-bs-interval="5000">
-
-                    <ol class="carousel-indicators" id="hero-carousel-indicators"></ol>
-
-                    <div class="carousel-inner" role="listbox">
-
-                        <!-- Slide 1 -->
-                        <div class="carousel-item active" style="background-image: url('');">
-                            <div class="carousel-container">
-                                <div class="carousel-content container">
-                                    <h2 class="animate__animated animate__fadeInDown">Welcome to <span>Mamba</span></h2>
-                                    <p class="animate__animated animate__fadeInUp">Ut velit est quam dolor ad a aliquid qui
-                                        aliquid. Sequi ea ut et est quaerat sequi nihil ut aliquam. Occaecati alias dolorem
-                                        mollitia ut. Similique ea voluptatem. Esse doloremque accusamus repellendus deleniti
-                                        vel. Minus et tempore modi architecto.</p>
-                                    <a href="#about"
-                                        class="btn-get-started animate__animated animate__fadeInUp scrollto">Read More</a>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Slide 2 -->
-                        <div class="carousel-item" style="background-image: url('');">
-                            <div class="carousel-container">
-                                <div class="carousel-content container">
-                                    <h2 class="animate__animated animate__fadeInDown">Lorem Ipsum Dolor</h2>
-                                    <p class="animate__animated animate__fadeInUp">Ut velit est quam dolor ad a aliquid qui
-                                        aliquid. Sequi ea ut et est quaerat sequi nihil ut aliquam. Occaecati alias dolorem
-                                        mollitia ut. Similique ea voluptatem. Esse doloremque accusamus repellendus deleniti
-                                        vel. Minus et tempore modi architecto.</p>
-                                    <a href="#about"
-                                        class="btn-get-started animate__animated animate__fadeInUp scrollto">Read More</a>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Slide 3 -->
-                        <div class="carousel-item" style="background-image: url('');">
-                            <div class="carousel-container">
-                                <div class="carousel-content container">
-                                    <h2 class="animate__animated animate__fadeInDown">Sequi ea ut et est quaerat</h2>
-                                    <p class="animate__animated animate__fadeInUp">Ut velit est quam dolor ad a aliquid qui
-                                        aliquid. Sequi ea ut et est quaerat sequi nihil ut aliquam. Occaecati alias dolorem
-                                        mollitia ut. Similique ea voluptatem. Esse doloremque accusamus repellendus deleniti
-                                        vel. Minus et tempore modi architecto.</p>
-                                    <a href="#about"
-                                        class="btn-get-started animate__animated animate__fadeInUp scrollto">Read More</a>
-                                </div>
-                            </div>
-                        </div>
-
-                    </div>
-
-                    <a class="carousel-control-prev" href="#heroCarousel" role="button" data-bs-slide="prev">
-                        <span class="carousel-control-prev-icon bi bi-chevron-left" aria-hidden="true"></span>
-                    </a>
-                    <a class="carousel-control-next" href="#heroCarousel" role="button" data-bs-slide="next">
-                        <span class="carousel-control-next-icon bi bi-chevron-right" aria-hidden="true"></span>
-                    </a>
-
-                </div>
-            </div>
-        </section><!-- End Hero --> --}}
-
         <main id="main">
 
 
-            <!-- ======= Campaigns Section ======= -->
-            <section class="campaigns">
-                <div class="container">
-                    <div class="section-title" data-aos="zoom-out">
-                        <h2>Campaigns</h2>
-                    </div>
-                    {{-- <div class="row no-gutters">
-                        @if (isset($projects))
-                            @foreach ($projects as $project)
-                                <div class="col-lg-4 col-md-6 content-item" data-aos="fade-up">
-                                    <h4>{{ $project->title }}</h4>
-                                    <p>{{ $project->desc }}</p><br>
-                                    <button class="nav-link scrollto" href="#"
-                                        style="background:#890000; color:white; border-radius:4px; border-color:#890000; box-shadow:#890000;">Donate
-                                        Now</button>
-                                </div>
-
-                            @endforeach
-                        @endif
-                    </div> --}}
-                    {{-- <section id="portfolio" class="portfolio section-bg">
-                        <div class="container" data-aos="fade-up" data-aos-delay="100">
-                            <div class="section-title">
-                                <h2>Projects</h2>
-                            </div>
-                            <div class="row">
-                                <div class="col-lg-12">
-                                    <ul id="portfolio-flters">
-                                        <li data-filter="*" class="filter-active">All</li>
-                                        @foreach (App\Project::TYPE as $type)
-
-                                            <li data-filter=".filter-app{{ $type }}">{{ $type }}</li>
-                                        @endforeach
-                                    </ul>
-                                </div>
-                            </div>
-
-                            <div class="row">
-
-                                {{-- [(New Price - Old Price)/Old Price] x 100 --}}
-                    @foreach ($projects as $project)
-                        @if ($project->published == 0)
-                            {{-- <div class="col-lg-4 col-md-6 mb-2 icon-box portfolio-item filter-app{{ $project->type }}">
-                                <div class="card" style="width: 18rem; height: 27rem; color:black">
-                                    <img class="card-img-top"
-                                        src="https://cdn.pixabay.com/photo/2016/12/29/16/12/barbed-wire-1938842_960_720.jpg"
-                                        alt="Card image cap">
-                                    <div class="card-body">
-                                        <div class="card-title">
-                                            <div class="row">
-                                                <div class="col">
-                                                    <h5 class="card-title">Raised:<span
-                                                            class="text-success">{{ $project->paidBudget }}<span>
-                                                    </h5>
-
-                                                </div>
-                                                <div class="col">
-                                                    <h5 class="card-title">Goals:<span class="text-success">
-                                                            RM{{ $project->neededBudget }}<span>
-                                                    </h5>
-
-                                                </div>
-                                            </div>
-                                            <div>
-                                                <div class="progress" style=" height: 35px;">
-                                                    <div class="progress-bar progress-bar-animated progress-bar-striped"
-                                                        role="progressbar" style=" width: {{ $project->percent }}%;"
-                                                        aria-valuenow="90" aria-valuemin="0" aria-valuemax="100">
-                                                        {{ $project->percent }}%
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <h5><a href="" class="card-text text-dark">Ali salah</h5></a>
-                                    </div>
-                                    <div class="card-footer">
-                                        <a href="stripe-payment/{{ $project->id }}"> <input type="submit"
-                                                href="stripe-payment/{{ $project->id }}" class="btn  btn-outline-success"
-                                                value="Donate Now"></a>
-                                    </div>
-                                </div>
-                            </div> --}}
-                        @endif
-
-                    @endforeach
-                </div>
-                </div>
-            </section>
-            <!-- End Projects Section -->
-
-            </div>
-
-            </div>
-
-            </section><!-- End Campaigns Section -->
 
             <!-- ======= Projects Section ======= -->
             <section id="portfolio" class="portfolio section-bg">
-                <a href="{{ url('projects-list') }}" class="btn"
-                    style=" color:#A52A2A; font-size:20px!important; float:right!important;margin-right:30px!important;">See
-                    all the projects that need your donation >></a><br>
+               
                 <div class="container" data-aos="fade-up" data-aos-delay="100">
 
                     <div class="section-title">
@@ -320,12 +154,12 @@
 
                     <div class="row portfolio-container">
                         @if (isset($projects))
-                            @foreach ($projects as $project)
+                     @foreach ($neededprojects as $index => $project)
                                 @if ($project->published == 0)
 
-                                    <div class="col-lg-4 col-md-6 portfolio-item filter-app{{ $project->type }}">
-                                        <div class="card" style="width: 18rem; height: 27rem; color:black">
-                                            <div class="text-center"><img
+                                    <div class="col-lg-4 col-md-4 portfolio-item filter-app{{ $project->type }}">
+                                        <div class="card" style="width: 22rem; height: 28rem; color:black;border-radius:30px!important;">
+                                            <div class="text-center"><br><img
                                                     class="card-img-top rounded img-thumbnail mw-100 c"
                                                     src="/storage/projects/{{ $project->photo }}" alt="Card image cap"
                                                     style="height: 200px; width:300px"></div>
@@ -333,14 +167,14 @@
                                                 <div class="card-title">
                                                     <div class="row">
                                                         <div class="col">
-                                                            <h5 class="card-title">Raised:<span
-                                                                    class="budgetsNumber">{{ $project->paidBudget }}RM<span>
+                                                            <h5 class="card-title">Raised: &nbsp;<span
+                                                                    class="budgetsNumber">{{ $project->paidBudget }}&nbsp;RM<span>
                                                             </h5>
 
                                                         </div>
                                                         <div class="col">
                                                             <h5 class="card-title">Goals:<span class="budgetsNumber">
-                                                                    RM{{ $project->neededBudget }}<span>
+                                                                    RM&nbsp;{{ $project->neededBudget }}<span>
                                                             </h5>
 
                                                         </div>
@@ -374,20 +208,22 @@
                             @endforeach
                         @endif
 
-                    </div>
-                </div>
-                </div>
-                </div>
-                </div><br><br><br>
+                     </div>
+                      </div>
+                      </div>
+                     </div>
+                      </div><br><br><br>
 
 
-                <a href="{{ url('projects') }}" class="btn"
+                <a href="{{ url('projectslist') }}" class="btn"
                     style=" color:#A52A2A; font-size:20px!important; float:right!important;margin-right:30px!important;">See
                     More Projects >></a><br>
 
 
 
             </section><!-- End Projects Section -->
+            <br><br>
+            <hr>
 
 
             <!-- ======= Implemented Projects Section ======= -->
@@ -405,11 +241,10 @@
                                 <div class="col-lg-4 col-md-6 icon-box" data-aos="fade-up">
                                     {{-- <div class="icon"><i class="bi bi-chat-left-dots"></i></div> --}}
                                     <img src="/storage/projects/{{ $project->photo }}" class="testimonial-img" alt=""
-                                        style="width:200px; border-radius:15px!important;"><br><br>
-                                    <h4 class="title"><a
-                                            href="{{ url('projects/' . $project->id) }}">{{ $project->title }}</a>
-                                    </h4>
-                                    <p class="description">{{ $project->desc }} </p>
+                                        style="width:300px; height:200px; border-radius:15px!important;"><br><br>
+                                    <h1 class="title"><a href="{{ url('projects/' . $project->id) }}">{{ $project->title }}</a>
+                                    </h1>
+                                    <h2 class="description">{{ $project->desc }} </h2>
                                 </div>
                             @endif
 
@@ -433,28 +268,27 @@
                     <div class="row">
                         @if (isset($news))
                             @foreach ($news as $news)
-                                <div class="col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="100">
+                                <div class="col-md-6 d-flex align-items-stretch mt-4 mt-md-0" data-aos="fade-up" data-aos-delay="100">
                                     <div class="icon-box">
 
-                                        <img src="{{ url('storage/news/' . $news->photo) }}" class="testimonial-img"
+                                        <img src="{{ url('storage/photos/' . $news->photo) }}" class="testimonial-img"
                                             alt=""
-                                            style="width:200px; height:200px!importany;border-radius:15px!important;"><br>
+                                            style="width:280px; height:300px!importany;border-radius:12px!important;"><br>
                                         <h4><a href="#">{{ $news->title }}</a></h4>
-                                        <p>{{ $news->desc }}</p>
-                                        <div class="row float-right">
+                                       <div class="row float-right">
                                             <a href="#" class="btn" style="color:#DAA520">Read More >></a>
-                            @endforeach
+                                            
+                            
+                      </div>
+                      </div>
+                      </div>
+                      
+                      @endforeach
                         @endif
-                    </div>
-                </div>
-                </div>
-                </div>
+                        </div>
+                      
 
-
-                </div>
-                </div>
-
-                <a href="#" class="btn"
+                  <a href="{{url('organization-news')}}" class="btn"
                     style=" color:#A52A2A; font-size:20px!important; float:right!important;margin-right:30px!important;">See
                     More News >></a><br><br><br>
             </section><!-- End Services Section -->
@@ -549,20 +383,20 @@
 
                         </div>
                         <!-- Add Pagination -->
-                        <div class="swiper-pagination"></div>
+                        <div class="swiper-pagination" style="color:#A52A2A!important;"></div>
                         <!-- Add Arrows -->
-                        <div class="swiper-button-next"></div>
-                        <div class="swiper-button-prev"></div>
+                        <div class="swiper-button-next swiper-button-black"></div>
+                        <div class="swiper-button-prev swiper-button-black"></div>
                     </div>
 
                 </div>
             </div>
             <br><br>
-
+         <!-- ======= End Partners Section ======= -->
 
 
             <!-- ======= Contact Us Section ======= -->
-            <section id="contact" class="contact" style="color:#890000;">
+          {{--   <section id="contact" class="contact" style="color:#890000;">
                 <div class="container" data-aos="fade-up">
 
                     <div class="section-title">
@@ -570,7 +404,9 @@
                     </div>
 
                     <div class="col-lg-12" data-aos="fade-up" data-aos-delay="300">
-                        <form action="forms\contact.php" method="post" role="form" class="php-email-form">
+                        <form action="{{ action('frontend\PagesController@dosend') }}" method="post" role="form" class="php-email-form">
+                        @csrf
+
                             <div class="row">
                                 <div class="col-lg-6 form-group">
                                     <input type="text" name="name" class="form-control" id="name" placeholder="Your Name"
@@ -583,7 +419,7 @@
                             </div>
 
                             <div class="form-group">
-                                <textarea class="form-control" name="message" rows="5" placeholder="Message"
+                                <textarea class="form-control" name="body" rows="5" placeholder="Message"
                                     required></textarea>
                             </div>
                             <div class="my-3">
@@ -598,7 +434,7 @@
                 </div>
 
                 </div>
-            </section><!-- End Contact Us Section -->
+            </section><!-- End Contact Us Section --> --}}
 
         </main><!-- End #main -->
 

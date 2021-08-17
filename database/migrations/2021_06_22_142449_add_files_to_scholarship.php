@@ -13,7 +13,7 @@ class AddFilesToScholarship extends Migration
      */
     public function up()
     {
-        Schema::table('scholarship', function (Blueprint $table) {
+        Schema::table('scholarships', function (Blueprint $table) {
             $table->string('files')->default(null);
         });
     }
@@ -25,7 +25,7 @@ class AddFilesToScholarship extends Migration
      */
     public function down()
     {
-        Schema::table('scholarship', function (Blueprint $table) {
+        Schema::table('scholarships', function (Blueprint $table) {
             $table->dropColumn('files');
         });
     }

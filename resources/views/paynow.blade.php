@@ -2,8 +2,6 @@
 
  @section('content')
 
-
-
      <form role="form" action="{{ action('StripeController@handlePost', [$project->id]) }}" method="POST"
          class="validation mt-5 mb-5" data-cc-on-file="false" data-stripe-publishable-key="{{ env('STRIPE_KEY') }}"
          id="payment-form">
@@ -13,7 +11,6 @@
 
 
              <div class="container">
-                 {{-- <a href="/" class="btn btn-dark mb-4">Go Back</a> --}}
                  <div class="row gutters">
                      <div class="col-xl-3 col-lg-3 col-md-12 col-sm-12 col-12">
                          <div class="card h-100">
@@ -24,9 +21,9 @@
                                              <img src="/storage/projects/{{ $project->photo }}" class="img-thumbnail"
                                                  salt="Maxwell Admin">
                                          </div>
-                                         <h5 class="user-name">{{ $project->title }}
+                                         <h3 class="user-name">{{ $project->title }}
                                          </h5>
-                                         <h6 class="user-email">{{ $project->desc }}
+                                         <h4 class="user-email">{{ $project->desc }}
                                          </h6>
                                      </div>
 
@@ -39,7 +36,7 @@
                              <div class="card-body">
                                  <div class="row gutters">
                                      <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
-                                         <h3 class="mb-5 text-center text-primary">Payment Details</h3>
+                                         <h3 class="mb-5 text-center" style="color:#A52A2A!important;">Payment Details</h3>
                                      </div>
 
 
@@ -104,11 +101,9 @@
                                      <div class="col">
                                          <div class="form-group justify-content-center">
                                              <input class="btn btn-success btn-lg btn-block" type="submit"
-                                                 value="Donate Now">
+                                                 value="Donate Now" style="background-color:#DAA520!important; border-color:#DAA520!important;">
                                          </div>
                                      </div>
-
-
 
                                  </div>
                              </div>
@@ -118,7 +113,7 @@
              </div>
              <div class='form-row row'>
                  <div class='col-md-12 hide error form-group'>
-                     <div class='alert-danger alert'>Fix the errors before you begin.</div>
+                     <div class='alert-danger alert'>Fill the required fields.</div>
                  </div>
              </div>
 

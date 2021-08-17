@@ -32,6 +32,6 @@ class TestMail extends Mailable
     public function build()
     {
         // return $this->view('view.name');
-        return $this->subject("Testing Mail from ISEo")->view("emails.TestMail");
+        return $this->subject("Testing Mail from IESCO")->view("emails.TestMail");
     }
 }

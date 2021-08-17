@@ -14,7 +14,7 @@
 
     <style>
         body {
-            background: rgb(177, 177, 174) !important;
+            background: rgb(224,224,224) !important;
         }
 
         .file-upload-btn {
@@ -139,7 +139,7 @@
         }
 
         h2 {
-            color: #DAA520 !important;
+            color: #A52A2A !important;
         }
 
 
@@ -223,14 +223,14 @@
     <section id="hi" class="hi">
         <div class="container" data-aos="fade-up">
             <div class=" display-4 pb-3"
-                style="color:#A52A2A!important;text-align:center!important;margin-top:50px!important;"> Scholarship
+                style="color:#A52A2A!important;text-align:center!important;margin-top:20px!important;"> Scholarship
                 Application Form
             </div><br>
             <div class="card-body" style="border: 1px solid grey; width:1050px!important;">
-                <form action="{{ action('ApplyScholarship@store') }}" method="POST" enctype="multipart/form-data">
+                <form action="{{ action('frontend\ScholarshipController@store') }}" method="POST" enctype="multipart/form-data">
                     @csrf
                     <br>
-                    <h2>(Personal Information)</h2><br>
+                    <h2>Personal Information</h2><br>
                     <!-- Full name -->
                     <div class="form-row col-sm-12" style="font-size:16px;">
                         <!-- First Name -->
@@ -333,7 +333,6 @@
                         <!-- Marital status -->
                         <div class="form-group col-sm-4">
                             <label for="marital">Marital Status *</label>
-                            {{-- <input type="text" id="marital_status" name="marital_status" class="form-control" value="{{ old('marital_status', isset($scholarship) ? $user->marital_status : '') }}" required> --}}
 
                             <select id="marital_status" name="marital_status"
                                 class="form-control {{ $errors->has('marital_status') ? 'border-danger' : '' }}">
@@ -373,8 +372,6 @@
                                 value="{{ old('phone', isset($scholarship) ? $user->phone_no : '') }}" required>
                         </div>
 
-
-
                         <!-- Address -->
                         <div class="form-group col-sm-8">
                             <label for="address">Address*</label>
@@ -411,12 +408,12 @@
                             <hr>
 
                             <br>
-                            <h2>(Academic Information)</h2><br>
+                            <h2>Academic Information</h2><br>
 
                             <div class="form-row col-sm-12" style="font-size:16px;">
                                 <!-- University Name -->
                                 <div class="form-group col-sm-4">
-                                    <label for="uni_name">University Name *</label>
+                                    <label for="uni_name">University Name</label>
                                     <input type="text" id="uni_name" name="uni_name" class="form-control"
                                         value="{{ old('uni_name', isset($scholarship) ? $user->uni_name : '') }}"
                                         required>
@@ -425,7 +422,7 @@
 
                                 <!-- Education Level -->
                                 <div class="form-group col-sm-4">
-                                    <label for="edu_level">Education Level *</label>
+                                    <label for="edu_level">Education Level</label>
                                     <select id="edu_level" name="edu_level"
                                         class="form-control {{ $errors->has('edu_level') ? 'border-danger' : '' }}">
                                         <option selected value="">Choose...</option>
@@ -447,30 +444,72 @@
 
                                 <!-- Course -->
                                 <div class="form-group col-sm-4">
-                                    <label for="course">Course *</label>
+                                    <label for="course">Course</label>
                                     <input type="text" id="course" name="course" class="form-control"
                                         value="{{ old('course', isset($scholarship) ? $user->course : '') }}">
                                 </div>
 
                                 <!-- Major -->
                                 <div class="form-group col-sm-4">
-                                    <label for="major">Major *</label>
+                                    <label for="major">Major</label>
                                     <input type="text" id="major" name="major" class="form-control"
                                         value="{{ old('major', isset($scholarship) ? $user->major : '') }}">
                                 </div>
 
                                 <!-- Matric No -->
                                 <div class="form-group col-sm-4">
-                                    <label for="matric">Matric No *</label>
+                                    <label for="matric">Matric No</label>
                                     <input type="text" id="matric" name="matric" class="form-control"
                                         value="{{ old('matric', isset($scholarship) ? $user->matric_no : '') }}">
                                 </div>
 
                                 <!-- CGPA -->
                                 <div class="form-group col-sm-4">
-                                    <label for="cgpa">CGPA *</label>
+                                    <label for="cgpa">CGPA</label>
                                     <input type="text" id="cgpa" name="cgpa" class="form-control"
                                         value="{{ old('cgpa', isset($scholarship) ? $user->cgpa : '') }}">
+                                </div>
+
+
+                                <!-- Total credit hour -->
+                                <div class="form-group col-sm-4">
+                                <label for="Total_credit">Total credit hour</label>
+                                <input type="text" id="Total_credit" name="Total_credit" class="form-control" value="{{ old('Total_credit', isset($scholarship) ? $user->total_credit : '') }}">
+                                </div>
+
+
+                                <!-- Total years of study -->
+                                <div class="form-group col-sm-4">
+                                <label for="Total_years">Total years of study</label>
+                                <input type="text" id="Total_years" name="Total_years" class="form-control" value="{{ old('Total_years', isset($scholarship) ? $user->Total_years : '') }}">
+                                </div>
+
+
+                                <!-- How many credit hour you have done -->
+                                <div class="form-group col-sm-4">
+                                <label for="credit_hours_done">How many credit hours you have done</label>
+                                <input type="text" id="credit_hours_done" name="credit_hours_done" class="form-control" value="{{ old('credit_hours_done', isset($scholarship) ? $user->credit_hours_done : '') }}">
+                                </div>
+
+
+                                <!-- Cost of tuition fee per year -->
+                                <div class="form-group col-sm-4">
+                                <label for="tuition_fee">Cost of tuition fee per year</label>
+                                <input type="text" id="tuition_fee" name="tuition_fee" class="form-control" value="{{ old('tuition_fee', isset($scholarship) ? $user->tuition_fee : '') }}">
+                                </div>
+
+
+                                <!-- Cost of transportation per semester -->
+                                <div class="form-group col-sm-4">
+                                <label for="transport_cost">Cost of transportation per semester</label>
+                                <input type="text" id="transport_cost" name="transport_cost" class="form-control" value="{{ old('transport_cost', isset($scholarship) ? $user->transport_cost : '') }}">
+                                </div>
+
+
+                                <!-- Cost of books per semester -->
+                                <div class="form-group col-sm-4">
+                                <label for="books_cost">Cost of books per semester</label>
+                                <input type="text" id="books_cost" name="books_cost" class="form-control" value="{{ old ('books_cost', isset($scholarship) ? $user->books_cost : '') }}">
                                 </div>
 
                             </div>
@@ -483,6 +522,38 @@
                             </div>
 
                             <br>
+
+                           <h2>Economic situation</h2><br>
+
+                            <div class="form-row col-sm-12" style="font-size:16px;">
+
+                            <!-- Cost of rent of House or Room -->
+                                <div class="form-group col-sm-4">
+                                <label for="room_cost">Cost of rent of House or Room</label>
+                                <input type="text" id="room_cost" name="room_cost" class="form-control" value="{{ old ('room_cost', isset($scholarship) ? $user->room_cost : '') }}">
+                                </div>
+
+                                <!-- Number of family members -->
+                                <div class="form-group col-sm-4">
+                                <label for="No_family_members">Number of family members</label>
+                                <input type="text" id="No_family_members" name="No_family_members" class="form-control" value="{{ old ('No_family_members', isset($scholarship) ? $user->No_family_members : '') }}">
+                                </div>
+
+                                <!-- Monthly income -->
+                                <div class="form-group col-sm-4">
+                                <label for="monthly_income">Monthly income</label>
+                                <input type="text" id="monthly_income" name="monthly_income" class="form-control" value="{{ old ('monthly_income', isset($scholarship) ? $user->monthly_income : '') }}">
+                                </div>
+
+
+                                <!-- Economic and social situation -->
+                                <div class="form-group col-sm-8">
+                                <label for="situation">Write briefly about your economic and social situation</label>
+                                <textarea id="situation" name="situation" class="form-control"
+                                rows="5">{{ old('situation', isset($scholarship) ? $scholarship->situation : '') }}</textarea>
+                                </div>
+                            
+                            </div>
 
                             <div class="text-center">
                                 <input class="btn btn-success w-25"

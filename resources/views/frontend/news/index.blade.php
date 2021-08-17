@@ -11,6 +11,7 @@
         }
 
     </style>
+    <br>
     @if (count($news) > 0)
 
         <div class="container">
@@ -24,13 +25,13 @@
                             </div>
                             <div class="col-md-8">
                                 <div class="card-block">
-                                    <h6 class="cardtitle">{{ $new->title }}</h6>
+                                    <h6 class="cardtitle" style="color:#A52A2A;">{{ $new->title }}</h6>
                                     <p class="card-text text-justify">{{ $new->desc }}</p>
-                                    <a href="organization-news/{{ $new->id }}" class="btn btn-primary">read more...</a>
+                                    <a href="organization-news/{{ $new->id }}" class="btn btn-primary" style="background-color:#A52A2A;border-color:#A52A2A;">Read More...</a>
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div><br>
                 @endforeach
 
             </div>

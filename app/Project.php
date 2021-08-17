@@ -36,24 +36,15 @@ class Project extends Model
         'updated_at',
         'deleted_at',
     ];
-    // public static function boot()
-    // {
-    //     parent::boot();
-    //     $projects = static::select(['dateToBeReady', 'published'])->get();
-    //     foreach ($projects as $project) {
-    //         if (Carbon::now()->isoFormat('YYYY-MM-DD') >= $project->dateToBeReady) {
-    //             $project->published = true;
-    //         }
-    //     }
-    // }
+   
     public function donation()
     {
         return $this->hasMany("App\Donation");
     }
     public function getPercentAttribute()
     {
-
+        if( $this->neededBudget!=0 &&$this->neededBudget!=null ){
         $cal = 100 - ((($this->neededBudget - $this->paidBudget) / $this->neededBudget) * 100);
-        return   number_format((float)$cal, 2, '.', '');;
+        return   number_format((float)$cal, 2, '.', '');}
     }
 }

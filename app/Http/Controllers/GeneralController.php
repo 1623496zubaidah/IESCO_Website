@@ -11,17 +11,17 @@ class GeneralController extends Controller
 {
     function __construct()
     {
-        $this->middleware('permission:general-list|general-create|general-edit|general-delete', ['only' => ['approScholarships', 'denyScholarships']]);
+        $this->middleware('permission:general-list|general-create|general-edit|general-delete', ['only' => ['approvedScholarships', 'denyScholarships']]);
         // $this->middleware('permission:general-create', ['only' => ['create', 'store']]);
         $this->middleware('permission:general-edit', ['only' => ['deny', 'approve', 'download', 'publishProject']]);
         $this->middleware('permission:general-delete', ['only' => ['delete']]);
     }
 
-    public function approScholarships()
+    public function approvedScholarships()
     {
         $approved = Scholarship::all()->where("approved", "approved");
 
-        return view("admin.approScholarship")->with("approved", $approved);
+        return view("admin.scholarship.approvedScholarship")->with("approved", $approved);
     }
 
 
@@ -58,7 +58,7 @@ class GeneralController extends Controller
         $scholarship->delete();
 
 
-        return redirect("admin/approved-scholarships")->with("success", "This is scholarship has been deleted");
+        return redirect("admin/rejected-scholarships")->with("success", "This is scholarship has been deleted");
     }
     public function download(Request $request, $id)
     {
@@ -68,7 +68,7 @@ class GeneralController extends Controller
         $zip = new \ZipArchive();
         $zip->open($zip_file, \ZipArchive::CREATE | \ZipArchive::OVERWRITE);
 
-        $path = public_path("files/" . $scholarships->email);
+        $path = public_path("/storage/files/" . $scholarships->email);
 
         if (!file_exists($path)) {
             return Redirect::back()->withErrors(['This application does not have any files to download']);

@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Scholarship extends Model
 {
     
-    public $table = 'scholarship';
+    public $table = 'scholarships';
 
     protected $fillable = [
         'first_name',
@@ -26,6 +26,16 @@ class Scholarship extends Model
         'major',
         'matric_no',
         'cgpa',
+        'total_credit',
+        'Total_years',
+        'credit_hours_done',
+        'tuition_fee',
+        'transport_cost',
+        'books_cost',
+        'room_cost',
+        'No_family_members',
+        'monthly_income',
+        'situation',
         'user_id',
     ];
 
@@ -560,5 +570,9 @@ class Scholarship extends Model
         'updated_at',
         'deleted_at',
     ];
+
+    public function user () {
+        return $this->belongsTo(User::class);
+    }
 
 }

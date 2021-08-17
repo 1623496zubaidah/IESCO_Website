@@ -4,7 +4,10 @@ namespace App\Http\Controllers\frontend;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\User;
 use App\Scholarship;
+use Auth;
+use Storage;
 
 class ScholarshipController extends Controller
 {
@@ -15,123 +18,115 @@ class ScholarshipController extends Controller
     } 
     
         public function create (){
-            return view('frontend.pages.scholarship');
+            return view('frontend.scholarships.create');
         
         }
     
-        public function store(Request $request){
-             $scholarship = $request->all();
-             $request->validate([
-                 'first_name' => 'required|max:200',
-                 'second_name' => 'required|max:500',
-                 'last_name' => 'required|max:500',
-                 'gender' => 'required|max:50',
-                 'nationality' => 'required',
-                 'place_of_birth' => 'required',
-                 'birthday' => 'required',
-                 'passport_no' => 'required',
-                 'email' => 'required',
-                 'address' => 'required',
-                 'phone_no' => 'required',
-                 'photo' => 'nullable',
-                 'uni_name' => 'nullable',
-                 'edu_level' => 'nullable',
-                 'course' => 'nullable',
-                 'major' => 'nullable',
-                 'matric_no' => 'nullable',
-                 'cgpa' => 'nullable',
-                 'user_id' => 'nullable',
-    
-             ]);
-    
-             /* $path = $request->file('photo')->store('public/scholarship');
-             $photo = basename($path);
-             $scholarship["photo"] = $photo;  */
-
-             if ($request->hasfile('photo')){
-                $file = $request->file('photo');
-                $ext = $file->getClientOriginalExtension();
-                $filename = 'photo' . '_' . time() . '.' .$ext;
-
-                $file->storeAs('public/photos' , $filename);
-                
-            } else {
-               $filename = 'nophoto.png'; 
-            }
-
-           
-             $scholarship = new Scholarship();
-             $scholarship->first_name = $request->first_name;
-             $scholarship->second_name = $request->second_name;
-             $scholarship->last_name = $request->last_name;
-             $scholarship->gender = $request->gender;
-             $scholarship->nationality = $request->nationality;
-             $scholarship->place_of_birth = $request->place_of_birth;
-             $scholarship->birthday = $request->birthday;
-             $scholarship->passport_no = $request->$passport_no;
-             $scholarship->email = $request->email;
-             $scholarship->address = $request->address;
-             $scholarship->phone_no = $request->phone_no;
-             $scholarship->photo = $request->photo;
-             $scholarship->uni_name = $request->uni_name;
-             $scholarship->edu_level = $request->edu_level;
-             $scholarship->course = $request->course;
-             $scholarship->major = $request->major;
-             $scholarship->matric_no = $request->matric_no;
-             $scholarship->cgpa = $request->cgpa;
-             $scholarship->user_id = $request->user_id;
-
-             
-    
-             $scholarship->save();
-    
-             return redirect('/frontend.home')->with('status','created ');
-    
-        }
-    
-  /*    
-        public function show($id) {
-            $scholarship = Scholarship::find($id); 
-       
-          return view('admin.scholarship.show', compact('project'));   
-       }  
-        
-       public function edit($id){
-            $project = Project::find($id);
-            return view('admin.projects.edit', compact('project'));
-    
-        }
-    
-    
-        public function update(Request $request, $id){
-            $request->validate([
-                'title' => 'required|max:200',
-                'targeted' => 'required|max:500',
-                'desc' => 'required|max:500',
-                'type' => 'required|max:50',
-                'photo' => 'required',
-    
-    
+        public function store(Request $request)
+        {
+            $this->validate($request, [
+                'first_name' => 'required',
+                'second_name' => 'required',
+                'last_name' => 'required',
+                'gender' => 'required',
+                'nation' => 'required',
+                'place_of_birth' => 'required',
+                'birth' => 'required',
+                'marital_status' => 'required',
+                'passport' => 'required',
+                'email' => 'required',
+                'phone' => 'required',
+                'address' => 'required',
+                'uni_name' => 'required',
+                'edu_level' => 'required',
+                'course' => 'required',
+                'major' => 'required',
+                'matric' => 'required',
+                'cgpa' => 'required',
+                'total_credit' => 'total_credit',
+                'Total_years' =>'Total_years',
+                'credit_hours_done' => 'credit_hours_done',
+                'tuition_fee' =>'tuition_fee',
+                'transport_cost' => 'transport_cost',
+                'books_cost' => 'books_cost',
+                'room_cost' => 'room_cost',
+                'No_family_members' => 'No_family_members',
+                'monthly_income' => 'monthly_income',
+                'situation' => 'situation',
+                'photo' => 'image|nullable|max:1999',
+                'files.*' => 'mimes:doc,pdf,docx,zip,jpeg,png,jpg'
             ]);
-            $project = Project::find($id);
-            $project->title = $request->title;
-            $project->targeted = $request->targeted;
-            $project->desc = $request->desc;
-            $project->type = $request->type;
-            $project->photo = $request->photo;
     
+            if($request->hasFile('photo')) {   
+     
+            $path = Storage::putFile('public\photos', $request->file('photo')); //storage/app/public/photos 
+                
+            }
     
-            $project->save();
+            if($request->hasFile('files')) {   
+                foreach ($request->file('files') as $file) {
+                    $data[] = Storage::putFile('public\files/'.$request->email, $file ); //storage/app/public/files/email
+                }
+                
+            }
     
-            return redirect('/admin/projects/index')->with('status','Project was updated ');
-        }
-    
-    public function destroy($id){
-        $project = Project::find($id);
-        $project->delete();
-        return redirect('/admin/projects/index')->with('status','Project was deleted ');
-    
-    }
+            $post = new Scholarship;
+            $post->first_name = $request->input('first_name');
+            $post->second_name = $request->input('second_name');
+            $post->last_name = $request->input('last_name');
+            $post->gender = $request->input('gender');
+            $post->nationality = $request->input('nation');
+            $post->place_of_birth = $request->input('place_of_birth');
+            $post->birthday = $request->input('birth');
+            $post->marital_status = $request->input('marital_status');
+            $post->passport_no = $request->input('passport');
+            $post->email = $request->input('email');
+            $post->phone_no = $request->input('phone');
+            $post->address = $request->input('address');
+            $post->photo =   basename($path);
+            $post->uni_name = $request->input('uni_name');
+            $post->edu_level = $request->input('edu_level');
+            $post->course = $request->input('course');
+            $post->major = $request->input('major');
+            $post->matric_no = $request->input('matric');
+            $post->cgpa = $request->input('cgpa');
+            $post->total_credit = $request->input('total_credit');
+            $post->Total_years = $request->input('Total_years');
+            $post->credit_hours_done = $request->input('credit_hours_done');
+            $post->tuition_fee = $request->input('tuition_fee');
+            $post->transport_cost = $request->input('transport_cost');
+            $post->books_cost = $request->input('books_cost');
+            $post->room_cost = $request->input('room_cost');
+            $post->No_family_members = $request->input('No_family_members');
+            $post->monthly_income = $request->input('monthly_income');
+            $post->situation = $request->input('situation');
 
-} */
+            $post->files = json_encode($data);
+    
+            $post->user_id = Auth::user()->id;
+    
+            // $post->files = $fileNameToStoreFile;
+    
+            $post->save();
+
+            /*  Mail::send('email.success', ['email' => $scholarship->email], function ($message)
+            {
+                $message->from('zubaida2009.ali@gmail.com', 'IESCO');
+                $message->to('ali83_upm@yahoo.com');
+            }); */
+    
+            return redirect("/home")->with('success', '* your application has been created successfully*');
+
+    
+        }
+
+
+        public function profile(User $user)
+           {
+        
+            $user->load('scholarship');
+
+            return view('frontend.profile', compact('user'));
+           }
+
 }

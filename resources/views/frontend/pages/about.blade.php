@@ -4,10 +4,16 @@
 <style>
 .about{
     margin:100px!important;
+    margin-top:30px!important;
+}
+h2{
+    color:#A52A2A;
 }
 </style>
 
 <div class="about">
+<img src="{{asset('assets/img/about.jpg')}}"style="width:1050px; highest:700px;"><br><br>
+
 <h2><b>Introduction</b></h2>
 <p>
 The International Educational Scientific and Cultural Organization (IESCO) has established in 2016 as an independent non-profit organization based in Malaysia. It aims to support and develop the educational, cultural and scientific sectors of the Arab and Muslim worlds in general and mainly in underprivileged areas. IESCO also strives to strengthen the relationship between Malaysian education institutions and their counterparts in the Arab and Islamic worlds.

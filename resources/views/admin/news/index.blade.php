@@ -52,7 +52,7 @@ color:white!important;
                     <tr>
                         <th>News ID</th>
                         <th>News Title</th>
-                        <th>Desc</th>
+                        <th>Photo</th>
                         <th>Actions</th>
                     </tr>
                 </thead>
@@ -62,7 +62,8 @@ color:white!important;
                         <tr data-entry-id="{{ $news->id }}" class="text-capitalize">
                             <td>{{ $news->id ?? '' }}</td>
                             <td>{{ $news->title ?? '' }}</td>
-                            <td>{{ $news->desc ?? '' }}</td>
+                            <td> <img src="//storage/photos/{{ $news->photo }}" style="width:80px!important; height:50px!important;"></td>
+                            
                             
                             <td class="text-capitalize">
                               <div class="portfolio-info">

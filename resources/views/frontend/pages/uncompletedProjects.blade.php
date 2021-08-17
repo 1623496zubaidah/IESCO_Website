@@ -4,11 +4,10 @@
     @if (count($projects) > 0)
 
         <div class="container">
-            {{-- {{ $projects }} --}}
 
             <div class="row">
                 @foreach ($projects as $project)
-                    <div class="card mr-5 mb-2 mt-2" style="width: 18rem; height: 27rem; color:black">
+                    <div class="card mr-5 mb-2 mt-2" style="width: 22rem; height: 27rem; color:black; border-radius:8px;">
                         <div class="text-center mt-2"><img class="card-img-top rounded img-thumbnail mw-100 c"
                                 src="/storage/projects/{{ $project->photo }}" alt="Card image cap"
                                 style="height: 200px; width:300px"></div>
@@ -16,13 +15,13 @@
                             <div class="card-title">
                                 <div class="row">
                                     <div class="col">
-                                        <h5 class="card-title">Raised:<span
-                                                class="budgetsNumber">{{ $project->paidBudget }}RM<span>
+                                        <h5 class="card-title">Raised:&nbsp;<span
+                                                class="budgetsNumber" style="color:#A52A2A;font-size:18px;">RM{{ $project->paidBudget }}<span>
                                         </h5>
 
                                     </div>
                                     <div class="col">
-                                        <h5 class="card-title">Goals:<span class="budgetsNumber">
+                                        <h5 class="card-title">Goals:<span class="budgetsNumber"style="color:#A52A2A;font-size:18px;">
                                                 RM{{ $project->neededBudget }}<span>
                                         </h5>
 
@@ -50,11 +49,6 @@
                         </div>
                     </div>
                 @endforeach
-
-
-                {{-- <div class="col-sm" style="border:1px solid #333">Equal Width Stack</div>
-                <div class="col-sm" style="border:1px solid #333">Equal Width Stack</div>
-                <div class="col-sm" style="border:1px solid #333">Equal Width Stack</div> --}}
 
             </div>
 

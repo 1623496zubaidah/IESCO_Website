@@ -85,7 +85,7 @@
                                                 <div class="portfolio-info">
 
                                                     <a class="btn btn-xs btn-primary"
-                                                        style="background-color:#A0A0A0!important; border-color:#A0A0A0; color:white!important;"
+                                                        style="background-color:#A52A2A!important; border-color:#A52A2A; color:white!important;"
                                                         href=" {{ '/admin/projects/' . $project->id }} ">
 
                                                         {{ trans('global.view') }}
@@ -94,7 +94,7 @@
 
 
                                                     <a class="btn btn-xs btn-warning text-white"
-                                                        style="background-color:#808080!important; border-color:#808080; color:white!important;"
+                                                        style="background-color:#A52A2A!important; border-color:#A52A2A; color:white!important;"
                                                         href="{{ '/admin/projects/' . $project->id . '/edit' }}">
                                                         {{ trans('global.edit') }}
                                                     </a>
@@ -108,7 +108,7 @@
                                                         <input type="hidden" name="_method" value="DELETE">
                                                         <input type="hidden" name="_token" value="{{ csrf_token() }}">
                                                         <input type="submit" class="btn btn-xs btn-danger"
-                                                            style="background-color:#505050!important; border-color:#505050; color:white!important;"
+                                                            style="background-color:#A52A2A!important; border-color:#505050; color:white!important;"
                                                             value="{{ trans('global.delete') }}">
                                                     </form>
 
@@ -120,7 +120,7 @@
 
 
                                                         <input type="submit" class="btn btn-xs btn-danger"
-                                                            style="background-color:#049a1b!important; border-color:#505050; color:white!important;"
+                                                            style="background-color:grey!important; border-color:grey; color:white!important;"
                                                             value="Done">
                                                     </form>
 

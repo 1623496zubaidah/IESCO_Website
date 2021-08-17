@@ -1,24 +1,20 @@
 @extends('layouts.admin')
-{{-- @extends('partials.menu') --}}
 @section('content')
     <div class="container">
         <div class="row gutters">
-            <div class="col-xl-3 col-lg-3 col-md-12 col-sm-12 col-12">
+            <div class="col-xl-3 col-lg-2 col-md-12 col-sm-12 col-12">
                 <div class="card h-100">
                     <div class="card-body">
                         <div class="account-settings">
                             <div class="user-profile">
                                 <div class="user-avatar p-3">
-                                    <img src="https://bootdey.com/img/Content/avatar/avatar7.png" class="img-thumbnail"
+                                    <img src="{{ asset('/storage/photos/'. $scholarship->photo)  ?? ''}}" class="img-thumbnail"
                                         salt="Maxwell Admin">
                                 </div>
                                 <h5 class="user-name">{{ $scholarship->first_name }} {{ $scholarship->last_name }}</h5>
                                 <h6 class="user-email">{{ $scholarship->email }}</h6>
                             </div>
-                            <div class="about">
-                                <h5>About</h5>
-                                <p>{{ $scholarship->desc }}</p>
-                            </div>
+                            
                         </div>
                     </div>
                 </div>
@@ -28,7 +24,7 @@
                     <div class="card-body">
                         <div class="row gutters">
                             <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
-                                <h6 class="mb-2 text-primary">Personal Details</h6>
+                                <h6 class="mb-2 text-primary"style="color:#A52A2A!important;">Personal Details</h6>
                             </div>
                             <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                                 <div class="form-group">
@@ -84,9 +80,9 @@
 
                             <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                                 <div class="form-group">
-                                    <label for="website">Download files</label>
+                                    <label for="website">Files</label>
                                     <a class="form-control btn btn-outline-primary" id="marital_status"
-                                        style=" background-color:#565bb6!important; border-color:#808080; color:white!important;"
+                                        style=" background-color:rgb(169,169,169)!important; border-color:#808080; color:white!important;"
                                         href="{{ url('download/' . $scholarship->id) }}">
                                         Download files
                                     </a>
@@ -97,7 +93,7 @@
                         </div>
 
                         <div class="row gutters">
-                            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12" style="margin-left:200px!important;">
                                 <div class="text-right">
                                     @if ($scholarship->approved == 'approved' || $scholarship->approved == 'pending')
 
@@ -109,7 +105,7 @@
 
 
                                             <input type="submit" class="btn btn-primary btn-sm btn-block mb-2"
-                                                style="background-color:#60dd87!important; border-color:#505050; color:white!important;"
+                                                style="background-color:#DAA520!important; border-color:#505050; color:white!important;"
                                                 value="Approve">
                                         </form>
 
@@ -120,7 +116,7 @@
 
 
                                             <input type="submit" class="btn btn-primary btn-sm btn-block mb-2" value="Deny"
-                                                style="background-color:#e73232!important; border-color:#505050; color:white!important;">
+                                                style="background-color:#A52A2A!important; border-color:#505050; color:white!important;">
                                         </form>
                                     @endif
                                     <form action="{{ action('GeneralController@delete', [$scholarship->id]) }}"
@@ -129,8 +125,8 @@
                                         <input type="hidden" name="_method" value="DELETE">
 
 
-                                        <input type="submit" class="btn btn-primary btn-sm btn-block mb-2" value="Delete"
-                                            style="background-color:#0b726f!important; border-color:#505050; color:white!important;">
+                                        <input type="submit" class="btn btn-danger btn-sm btn-block mb-2" value="Delete"
+                                            style="color:white!important;">
                                     </form>
 
                                 </div>

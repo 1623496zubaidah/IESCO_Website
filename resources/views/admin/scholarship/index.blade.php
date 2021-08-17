@@ -31,24 +31,13 @@
             display: inline-block;
         }
 
-        a,
-        .card :hover {
-            /* border-color: white !important;
-                                                            color: white !important; */
-        }
-
     </style>
-
-
-
 
     <div class="card">
         <div class="card-header">
             <div style="margin-bottom: 10px;" class="row">
                 <div class="col-lg-12 ">
-                    {{-- <a class="btn btn-success text-capitalize font-weight-bold"  style="color:white; font-size:16px!important; background-color:#515355!important;"  href="{{ route("admin.projects.create") }}">
-                <i class="fas fa-plus mr-2">Add Project</i>  
-            </a> --}}
+                    
                 </div>
             </div>
 
@@ -61,11 +50,8 @@
                                 <th>Last Name</th>
                                 <th>Gender</th>
                                 <th>Nationality</th>
-                                <th>Marital Status</th>
-                                <th>Phone No</th>
-                                <th>Email</th>
-                                <th> </th>
-                                <th>Approve/Reject</th>
+                                <th>Profile</th>
+                                <th>Status</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -78,41 +64,22 @@
                                         <td>{{ $scholarship->second_name ?? '' }}</td>
                                         <td>{{ $scholarship->gender ?? '' }}</td>
                                         <td>{{ $scholarship->nationality ?? '' }}</td>
-                                        <td>{{ $scholarship->marital_status ?? '' }}</td>
-                                        <td>{{ $scholarship->phone_no ?? '' }}</td>
-                                        <td>{{ $scholarship->email ?? '' }}</td>
-                                        {{-- <td>{{ $project->desc ?? '' }}</td>
-                                <td>{{ $project->type ?? '' }}</td>
-                                <td>{{ $project->photo ?? '' }}</td> --}}
-
-
+                                     
                                         <td class="text-capitalize">
                                             <div class="portfolio-info">
 
                                                 <a class="btn btn-xs btn-primary"
-                                                    style="background-color:#A0A0A0!important; border-color:#A0A0A0; color:white!important;"
+                                                    style="background-color:#A52A2A!important; border-color:#A52A2A; color:white!important;"
                                                     href="{{ '/admin/scholarships/' . $scholarship->id }} ">
 
                                                     {{ trans('global.view') }}
                                                 </a>
-
-
-
+                                                
                                                 <a class="btn btn-xs btn-warning text-white"
-                                                    style="background-color:#808080!important; border-color:#808080; color:white!important;"
-                                                    href="{{ '/admin/scholarships/' . $scholarship->id . '/edit' }}">
-                                                    {{ trans('global.edit') }}
-                                                </a>
-                                                <a class="btn btn-xs btn-warning text-white"
-                                                    style="background-color:#565bb6!important; border-color:#808080; color:white!important;"
+                                                    style="background-color:#A52A2A!important;border-color:#A52A2A!important; color:white!important;"
                                                     href="{{ url('download/' . $scholarship->id) }}">
                                                     Download files
                                                 </a>
-
-
-
-
-
 
                                         </td>
                                         <td class="text-capitalize">
@@ -124,7 +91,7 @@
 
 
                                                 <input type="submit" class="btn btn-primary btn-sm btn-block"
-                                                    style="background-color:#60dd87!important; border-color:#505050; color:white!important;"
+                                                    style="background-color:grey!important; border-color:grey; color:white!important;"
                                                     value="Approve">
                                             </form>
 
@@ -135,10 +102,8 @@
 
 
                                                 <input type="submit" class="btn btn-primary btn-sm btn-block" value="Deny"
-                                                    style="background-color:#e73232!important; border-color:#505050; color:white!important;">
+                                                    style="background-color:#A52A2A!important; border-color:#A52A2A; color:white!important;">
                                             </form>
-
-
 
                                         </td>
 
@@ -149,6 +114,5 @@
                     </table>
 
                     <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
-
                 @endsection
-                {{-- @datatablescript(['para' => ['delete' => 'project_delete', 'route' => "projects/destroy", 'class' => '.datatable-Project:not(.ajaxTable)']]) --}}
+                @include('include.datatablesscript', ['para' => ['delete' => 'project_delete', 'route' => "scholarships/destroy", 'class' => '.datatable-Scholarships:not(.ajaxTable)']])

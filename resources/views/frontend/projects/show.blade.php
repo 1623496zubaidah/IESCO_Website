@@ -1,10 +1,7 @@
 @extends('frontend.master')
-{{-- @extends('partials.menu') --}}
 @section('content')
 
-    <div class="container">
-        <a href="/projects" class="btn btn-dark mt-4">Go Back</a>
-        <br><br><br>
+        <br><br><br> 
 
         <div class="container">
 
@@ -23,35 +20,20 @@
                             <h5 class="card-title">Description</h5>
                             <p class="card-text">{{ $project->desc }}</p>
 
+                             
+                             <a href="/donation-payment/{{ $project->id }}"> <input type="submit"
+                              href="/donation-payment/{{ $project->id }}" class="btn  btn-outline-dark" style="background-color:#A52A2A!important;color:white" value="Donate Now"></a>
+                            
                         </div>
                     </div>
-                    {{-- <div class="card mb-2">
-                        <div class="card-body">
-                            <h5 class="card-title">Phone Number</h5>
-                            <p class="card-text">{{ $project->phone }}</p>
-
-                        </div>
-                    </div> --}}
-                    {{-- <div class="card mb-2">
-                        <div class="card-body">
-                            <h5 class="card-title">Send your CV to this Email</h5>
-                            <p class="card-text">{{ $project->email }}</p>
-
-                        </div>
-                    </div> --}}
 
                 </div>
             </div>
 
-        </div>
+          
 
-
-
-
-
-
-        @if (!Auth::guest())
-
+         @if (!Auth::guest())
+ 
 
             @if (Auth::user()->id == $project->user_id || Auth::user()->email == 'ibrahim@example.com')
 
@@ -62,9 +44,9 @@
                 {{ Form::submit('Delete', ['class' => 'btn btn-danger']) }}
                 {!! Form::close() !!}
             @endif
-        @endif
+         @endif
 
-    </div>
+      </div>
     <br><br><br><br>
 
 

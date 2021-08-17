@@ -4,33 +4,39 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\User;
 use App\Scholarship;
+use Auth;
+use Storage;
+use App\DataTables\ScholarshipDataTable;
+
 
 class ScholarshipController extends Controller
 {
 
     function __construct()
     {
-        $this->middleware('permission:scholarship-list|scholarship-create|scholarship-edit|scholarship-delete', ['only' => ['index', 'show']]);
-        $this->middleware('permission:scholarship-create', ['only' => ['create', 'store']]);
-        $this->middleware('permission:scholarship-edit', ['only' => ['edit', 'update']]);
-        $this->middleware('permission:scholarship-delete', ['only' => ['destroy']]);
+         $this->middleware('permission:scholarship-list|scholarship-create|scholarship-edit|scholarship-delete', ['only' => ['index', 'show']]);
+         $this->middleware('permission:scholarship-create', ['only' => ['create', 'store']]);
+         $this->middleware('permission:scholarship-edit', ['only' => ['edit', 'update']]);
+         $this->middleware('permission:scholarship-delete', ['only' => ['destroy']]);
     }
-    public function index()
+   public function index()
     {
         $scholarships = Scholarship::all();
         return view('admin.scholarship.index')->with("scholarships",  $scholarships);
-    }
-
+    } 
 
     public function show($id)
     {
         $scholarship = Scholarship::find($id);
 
+        
+
         return view('admin.scholarship.show')->with("scholarship", $scholarship);
     }
 
-    public function edit($id)
+     public function edit($id)
     {
         $scholarship = Scholarship::find($id);
         return view('admin.scholarship.edit')->with("scholarship", $scholarship);
@@ -58,6 +64,16 @@ class ScholarshipController extends Controller
             'major' => 'required',
             'matric' => 'required',
             'cgpa' => 'required',
+            'total_credit' => 'total_credit',
+            'Total_years' =>'Total_years',
+            'credit_hours_done' => 'credit_hours_done',
+            'tuition_fee' =>'tuition_fee',
+            'transport_cost' => 'transport_cost',
+            'books_cost' => 'books_cost',
+            'room_cost' => 'room_cost',
+            'No_family_members' => 'No_family_members',
+            'monthly_income' => 'monthly_income',
+            'situation' => 'situation',
 
         ]);
 
@@ -81,16 +97,25 @@ class ScholarshipController extends Controller
         $post->major = $request->input('major');
         $post->matric_no = $request->input('matric');
         $post->cgpa = $request->input('cgpa');
+        $post->total_credit = $request->input('total_credit');
+        $post->Total_years = $request->input('Total_years');
+        $post->credit_hours_done = $request->input('credit_hours_done');
+        $post->tuition_fee = $request->input('tuition_fee');
+        $post->transport_cost = $request->input('transport_cost');
+        $post->books_cost = $request->input('books_cost');
+        $post->room_cost = $request->input('room_cost');
+        $post->No_family_members = $request->input('No_family_members');
+        $post->monthly_income = $request->input('monthly_income');
+        $post->situation = $request->input('situation');
+
 
 
         $post->save();
         return redirect("admin/scholarships")->with('success', '* your application has been created *');
-    }
+    } 
 
     public function destroy($id)
     {
-        // $project = Project::find($id);
-        // $project->delete();
-        // return redirect('/admin/projects/index')->with('status', 'Project was deleted ');
+
     }
 }

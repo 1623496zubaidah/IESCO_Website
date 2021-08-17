@@ -14,10 +14,4 @@ class HomeController extends Controller
         return view('admin.dashboard');
     }
 
-    // public function scholarship()
-    // {
-    //     $scholarships = Scholarship::all();
-    //     dump($scholarships);
-    //     return view('admin.scholarship')->with("scholarships",  $scholarships);
-    // }
 }

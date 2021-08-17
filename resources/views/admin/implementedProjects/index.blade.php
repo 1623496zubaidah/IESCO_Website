@@ -48,16 +48,6 @@
                         implemented projects</h1>
                 </div>
 
-                {{-- <div style="margin-bottom: 10px;" class="row">
-                    <div class="col-lg-12 ">
-                        <a class="btn btn-success text-capitalize font-weight-bold"
-                            style="color:white; font-size:16px!important; background-color:#515355!important;"
-                            href="{{ route('admin.projects.create') }}">
-                            <i class="fas fa-plus mr-2">Add Project</i>
-                        </a>
-                    </div>
-                </div> --}}
-
                 <div class="card-body" style="background-color:white!important;">
                     <div class="table-responsive">
                         <table

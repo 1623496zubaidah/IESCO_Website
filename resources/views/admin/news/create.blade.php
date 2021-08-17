@@ -3,7 +3,6 @@
     <style>
         th {
             color: blue !important;
-            /*{{ config('styles.frondend.colors.primary') }}; */
         }
 
         table.table th {
@@ -14,7 +13,6 @@
             color: blue !important;
         }
 
-        /* {{ config('styles.frondend.colors.primary') }};  } */
         #user-profile-container {
             padding: 10px;
             bottom: 450px;
@@ -168,7 +166,6 @@
         <div class="container" data-aos="fade-up">
             <div class="card p-4">
                 <div class=" display-4 pb-3"> Add Latest News
-                    {{-- {{ trans('global.create') }} {{ trans('cruds.event.title_singular') }} --}}
                 </div>
                 <div class="card-body" style="border: 1px solid grey;">
                     <form action="{{ route('admin.news.store') }}" method="POST" enctype="multipart/form-data">
@@ -176,16 +173,10 @@
 
                         <div class="form-row col-sm-12" style="font-size:16px;">
                             <!-- title -->
-                            <div class="form-group col-sm-6 {{-- {{ $errors->has('title') ? 'has-error' : '' }}; --}}" style="color:grey;">
+                            <div class="form-group col-sm-6 " style="color:grey;">
                                 <label for="title">{{ trans('cruds.news.fields.title') }}*</label>
-                                <input type="text" id="title" name="title" class="form-control" {{-- {{ $errors->has('name') ? 'border-danger' : '' }}" --}}
+                                <input type="text" id="title" name="title" class="form-control" 
                                     value="{{ old('title', isset($news) ? $news->title : '') }}" required>
-                                {{-- @if ($errors->has('name'))
-                <em class="invalid-feedback">
-                    {{ $errors->first('name') }}
-                </em>
-            @endif --}}
-
                             </div>
 
 
@@ -232,14 +223,11 @@
                                 </div>
 
 
-
-                            </div>
-
-                            <div class="text-center">
-                                <input class="btn btn-success w-25"
-                                    style="font-weight: bold; font-family: system-ui; background-color:grey!important;"
-                                    type="submit" value="{{ trans('global.save') }}">
-                            </div>
+                                <div class="text-center">
+                                    <input class="btn btn-success w-25"
+                                        style="font-weight: bold; font-family: system-ui; background-color:grey!important;"
+                                        type="submit" value="{{ trans('global.save') }}">
+                                </div>
 
                     </form>
                 </div>

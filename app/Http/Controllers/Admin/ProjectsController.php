@@ -20,8 +20,6 @@ class ProjectsController extends Controller
     }
     public function index()
     {
-        // $projects = Project::all();
-        // $projects = Project::paginate(5);
         $projects = Project::orderBy('created_at', 'desc')->paginate(10);
 
 
@@ -57,7 +55,7 @@ class ProjectsController extends Controller
             $fileNameToStore = $filename . '_' . time() . '.' . $extension;
 
             //upload the image to file
-            $path = $request->file('photo')->storeAs('public/projects', $fileNameToStore);
+            $path = $request->file('photo')->storeAs('public\projects', $fileNameToStore);
         } else {
             $fileNameToStore = 'noimage.jpg';
         }
@@ -115,7 +113,7 @@ class ProjectsController extends Controller
             $fileNameToStore = $filename . '_' . time() . '.' . $extension;
 
             //upload the image to file
-            $path = $request->file('photo')->storeAs('public/projects', $fileNameToStore);
+            $path = $request->file('photo')->storeAs('public\projects', $fileNameToStore);
             $project->photo = $fileNameToStore;
         } else {
             $fileNameToStore = 'noimage.jpg';

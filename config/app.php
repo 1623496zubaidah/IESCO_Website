@@ -175,10 +175,13 @@ return [
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
+        Yajra\DataTables\DataTablesServiceProvider::class,
+        Yajra\DataTables\ButtonsServiceProvider::class,
+
         Spatie\Permission\PermissionServiceProvider::class,
         // Intervention\Image\ImagesServiceProvider::class,
-        Srmklive\PayPal\Providers\PayPalServiceProvider::class,
-        Neonexxa\BillplzWrapperV3\BillplzServiceProvider::class,
+        //Srmklive\PayPal\Providers\PayPalServiceProvider::class,
+        //Neonexxa\BillplzWrapperV3\BillplzServiceProvider::class,
 
     ],
 

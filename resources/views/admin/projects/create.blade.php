@@ -4,7 +4,6 @@
     <style>
         th {
             color: blue !important;
-            /*{{ config('styles.frondend.colors.primary') }}; */
         }
 
         table.table th {
@@ -15,7 +14,6 @@
             color: blue !important;
         }
 
-        /* {{ config('styles.frondend.colors.primary') }};  } */
         #user-profile-container {
             padding: 10px;
             bottom: 450px;
@@ -171,7 +169,6 @@
         <div class="container" data-aos="fade-up">
             <div class="card p-4">
                 <h3> Add New Project
-                    {{-- {{ trans('global.create') }} {{ trans('cruds.event.title_singular') }} --}}
                 </h3><br>
                 <div class="card-body" style="border: 1px solid grey;">
                     <form action="{{ action('Admin\ProjectsController@store') }}" method="POST"
@@ -182,28 +179,20 @@
 
                         <div class="form-row col-sm-12" style="font-size:16px;">
                             <!-- Title -->
-                            <div class="form-group col-sm-12 {{-- {{ $errors->has('title') ? 'has-error' : '' }}; --}}" style="color:#A52A2A!important;">
+                            <div class="form-group col-sm-12 " style="color:#A52A2A!important;">
                                 <label for="title">{{ trans('cruds.project.fields.title') }}*</label>
-                                <input type="text" id="title" name="title" class="form-control" {{-- {{ $errors->has('name') ? 'border-danger' : '' }}" --}}
+                                <input type="text" id="title" name="title" class="form-control" 
                                     value="{{ old('name', isset($project) ? $project->title : '') }}" required>
-                                {{-- @if ($errors->has('name'))
-                <em class="invalid-feedback">
-                    {{ $errors->first('name') }}
-                </em>
-            @endif --}}
+                               
                             </div>
 
 
                             <!-- targeted -->
-                            <div class="form-group col-sm-12 {{-- {{ $errors->has('title') ? 'has-error' : '' }}; --}}" style="color:#A52A2A!important;">
+                            <div class="form-group col-sm-12 " style="color:#A52A2A!important;">
                                 <label for="targeted">{{ trans('cruds.project.fields.targeted') }}*</label>
-                                <input type="text" id="targeted" name="targeted" class="form-control" {{-- {{ $errors->has('name') ? 'border-danger' : '' }}" --}}
+                                <input type="text" id="targeted" name="targeted" class="form-control" 
                                     value="{{ old('targeted', isset($project) ? $project->targeted : '') }}" required>
-                                {{-- @if ($errors->has('name'))
-                <em class="invalid-feedback">
-                    {{ $errors->first('name') }}
-                </em>
-            @endif --}}
+                                
                                 <p class="helper-block">
                                     {{ trans('cruds.project.fields.targeted_helper') }}
                                 </p>
@@ -237,7 +226,7 @@
 
                             <!-- date To Be Ready -->
                             <div class="form-group col-sm-4">
-                                <label for="birth" style="color:#A52A2A!important;">Date To Be Ready *</label>
+                                <label for="birth" style="color:#A52A2A!important;">Project end date *</label>
 
                                 <input type="date" id="dateToBeReady" name="dateToBeReady" class="form-control" value=""
                                     min="<?php echo date('Y-m-d'); ?>" required>
@@ -272,9 +261,6 @@
                                 </div>
                             </div>
 
-
-
-
                             <!-- photo -->
                             <div class="file-upload">
                                 <div class="form-group">
@@ -295,10 +281,6 @@
                                         </div>
                                     </div>
                                 </div>
-
-
-
-
 
                                 <div class="text-center">
                                     <input class="btn btn-success w-25"
@@ -348,7 +330,5 @@
             $('.image-upload-wrap').removeClass('image-dropping');
         });
     </script>
-
-
 
 @endsection

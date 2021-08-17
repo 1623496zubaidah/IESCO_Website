@@ -14,8 +14,7 @@
 
 <style>
     #header {
-        background-color: #515355 !important;
-
+       background-color:rgb(169,169,169)!important;
     }
 
     .navbar a {
@@ -23,13 +22,12 @@
     }
 
     .navbar .dropdown ul {
-        background: #515355 !important;
-    }
+      background-color:rgb(169,169,169)!important;    }
 
     .navbar .dropdown ul a:hover,
     .navbar .dropdown ul .active:hover,
     .navbar .dropdown ul li:hover>a {
-        color: #7f8183 !important;
+        color: #fff !important;
     }
 
 </style>
@@ -186,6 +184,44 @@
     </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.5/js/select2.full.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.5.1/min/dropzone.min.js"></script>
+    <script src ="{{ asset('vendor/datatables/button.server-side.js')}}"></script> 
+
+   
+
+
+<script src="https://cdn.datatables.net/1.10.25/css/jquery.dataTables.min.css"></script>
+<script src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/autofill/2.3.7/css/autoFill.dataTables.min.css"></script>
+<script src="https://cdn.datatables.net/autofill/2.3.7/js/dataTables.autoFill.min.js"></script>
+<script src="https://cdn.datatables.net/buttons/1.7.1/css/buttons.dataTables.min.css"></script>
+<script src="https://cdn.datatables.net/buttons/1.7.1/js/dataTables.buttons.min.js"></script>
+<script src="https://cdn.datatables.net/buttons/1.7.1/js/buttons.colVis.min.js"></script>
+<script src="https://cdn.datatables.net/buttons/1.7.1/js/buttons.html5.min.js"></script>
+<script src="https://cdn.datatables.net/buttons/1.7.1/js/buttons.print.min.js"></script>
+<script src="https://cdn.datatables.net/colreorder/1.5.4/css/colReorder.dataTables.min.css"></script>
+<script src="https://cdn.datatables.net/datetime/1.1.0/css/dataTables.dateTime.min.css"></script>
+<script src="https://cdn.datatables.net/datetime/1.1.0/js/dataTables.dateTime.min.js"></script>
+<script src="https://cdn.datatables.net/fixedcolumns/3.3.3/css/fixedColumns.dataTables.min.css"></script>
+<script src="https://cdn.datatables.net/fixedcolumns/3.3.3/js/dataTables.fixedColumns.min.js"></script>
+<script src="https://cdn.datatables.net/fixedheader/3.1.9/css/fixedHeader.dataTables.min.css"></script>
+<script src="https://cdn.datatables.net/fixedheader/3.1.9/js/dataTables.fixedHeader.min.js"></script>
+<script src="https://cdn.datatables.net/keytable/2.6.2/css/keyTable.dataTables.min.css"></script>
+<script src="https://cdn.datatables.net/keytable/2.6.2/js/dataTables.keyTable.min.js"></script>
+<script src="https://cdn.datatables.net/responsive/2.2.9/css/responsive.dataTables.min.css"></script>
+<script src="https://cdn.datatables.net/responsive/2.2.9/js/dataTables.responsive.min.js"></script>
+<script src="https://cdn.datatables.net/rowgroup/1.1.3/css/rowGroup.dataTables.min.css"></script>
+<script src="https://cdn.datatables.net/rowgroup/1.1.3/js/dataTables.rowGroup.min.js"></script>
+<script src="https://cdn.datatables.net/rowreorder/1.2.8/css/rowReorder.dataTables.min.css"></script>
+<script src="https://cdn.datatables.net/rowreorder/1.2.8/js/dataTables.rowReorder.min.js"></script>
+<script src="https://cdn.datatables.net/scroller/2.0.4/css/scroller.dataTables.min.css"></script>
+<script src="https://cdn.datatables.net/scroller/2.0.4/js/dataTables.scroller.min.js"></script>
+<script src="https://cdn.datatables.net/searchbuilder/1.1.0/css/searchBuilder.dataTables.min.css"></script>
+<script src=">https://cdn.datatables.net/searchbuilder/1.1.0/js/dataTables.searchBuilder.min.js"></script>
+<script src=">https://cdn.datatables.net/searchpanes/1.3.0/css/searchPanes.dataTables.min.css"></script>
+<script src=">https://cdn.datatables.net/searchpanes/1.3.0/js/dataTables.searchPanes.min.js"></script>
+<script src=">https://cdn.datatables.net/select/1.3.3/css/select.dataTables.min.css</script>"></script>
+<script src=">https://cdn.datatables.net/select/1.3.3/js/dataTables.select.min.js</script>"></script>
+
 
     <script src="{{ asset('js/main.js') }}"></script>
     <script>
@@ -279,7 +315,8 @@
             $.fn.dataTable.ext.classes.sPageButton = '';
         });
     </script>
-    @yield('scripts')
+    @yield('scripts') 
+    
 </body>
 
 </html>
