@@ -145,7 +145,7 @@
                     }
                 });
 
-                if (!$form.data('cc-on-file')) {
+          /*      if (!$form.data('cc-on-file')) {
                     e.preventDefault();
                     Stripe.setPublishableKey($form.data('stripe-publishable-key'));
                     Stripe.createToken({
@@ -155,9 +155,11 @@
                         exp_year: $('.card-expiry-year').val()
                     }, stripeHandleResponse);
                 }
+                */
+                
 
             });
-
+/*
             function stripeHandleResponse(status, response) {
                 if (response.error) {
                     $('.error')
@@ -171,7 +173,7 @@
                     $form.get(0).submit();
                 }
             }
-
+*/
         });
     </script>
 

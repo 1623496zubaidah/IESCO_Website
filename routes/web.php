@@ -109,13 +109,13 @@ Route::group(['middleware' => ['auth']], function () {
 });
 
 ////Donate for projects 
-Route::get('/donation-payment/{id}', 'StripeController@handleGet');
-Route::patch('/donation-payment/{id}',  'StripeController@handlePost')->name('stripe.payment');
+Route::get('/donation-payment/{id}', 'PaymentController@handleGet');
+Route::patch('/donation-payment/{id}',  'PaymentController@handlePost')->name('Payment.payment');
 
 
 ////General donation
-Route::get('/donate', 'StripeController@viewGeneralPayment');
-Route::post('/donate', 'StripeController@general_donation');
+Route::get('/donate', 'PaymentController@viewGeneralPayment');
+Route::post('/donate', 'PaymentController@general_donation');
 
 
 ////Payment
@@ -125,8 +125,8 @@ Route::get('payment/success', 'PayPalController@success')->name('payment.success
 
 
 ////Donate for projects 
-Route::get('/paypal/{id}', 'StripeController@handleGet');
-Route::patch('/paypal/{id}',  'StripeController@handlePost');
+Route::get('/paypal/{id}', 'PaymentController@handleGet');
+Route::patch('/paypal/{id}',  'PaymentController@handlePost');
 
 ////////
  

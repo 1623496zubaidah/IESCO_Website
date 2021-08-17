@@ -6,10 +6,10 @@ use App\Donation;
 use App\General_Donation;
 use App\Project;
 use Illuminate\Http\Request;
-use Stripe;
+use Payment;
 use Session;
 
-class StripeController extends Controller
+class PaymentController extends Controller
 {
     /**
      * payment view
@@ -36,17 +36,9 @@ class StripeController extends Controller
         $donor->amount = $request->input("amount");
         $donor->donor_name = $request->input("name");
         $donor->donor_phone = $request->input("phone");
-        $donor->projectId =     $project->id;
-        $donor->project_name =      $project->title;
+        $donor->projectId = $project->id;
+        $donor->project_name = $project->title;
         $donor->save();
-
-        Stripe\Stripe::setApiKey(env('STRIPE_SECRET'));
-        Stripe\Charge::create([
-            "amount" => 100 * 150,
-            "currency" => "inr",
-            "source" => $request->stripeToken,
-            "description" => "Making test payment."
-        ]);
 
         Session::flash('success', 'Payment has been successfully processed.');
 
@@ -71,14 +63,6 @@ class StripeController extends Controller
             $donate->comment = $request->input("comment");
         }
         $donate->save();
-
-        Stripe\Stripe::setApiKey(env('STRIPE_SECRET'));
-        Stripe\Charge::create([
-            "amount" => 100 * 150,
-            "currency" => "inr",
-            "source" => $request->stripeToken,
-            "description" => "Making test payment."
-        ]);
 
         Session::flash('success', 'Payment has been successfully processed.');
 
